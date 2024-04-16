@@ -30,3 +30,6 @@ stamp-h1
 xdelta3/xdelta3
 xdelta3decode
 xdelta3regtest
+CMakeFiles
+*.a
+cmake_install.cmake

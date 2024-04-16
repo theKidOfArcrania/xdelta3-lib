@@ -167,8 +167,21 @@ typedef ULONGLONG      uint64_t;
 #define _FILE_OFFSET_BITS 64
 #endif
 
+#ifndef __cplusplus
+#ifndef static_assert
+#define __DEFINED_STATIC_ASSERT
+#define static_assert2(COND, L) typedef char static_assertion_at_line_##L[(COND)?1:-1]
+#define static_assert(COND, ...) static_assert2(COND, __LINE__)
+#endif
+#endif
+
 static_assert(SIZEOF_SIZE_T == sizeof(size_t), "SIZEOF_SIZE_T not correctly set");
 static_assert(SIZEOF_UNSIGNED_LONG_LONG == sizeof(unsigned long long), "SIZEOF_UNSIGNED_LONG_LONG not correctly set");
+
+#ifdef __DEFINED_STATIC_ASSERT
+#undef static_assert
+#undef static_assert2
+#endif
 
 /* Set a xoff_t typedef and the "Q" printf insert. */
 #if defined(_WIN32)

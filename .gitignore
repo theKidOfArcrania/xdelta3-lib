@@ -33,3 +33,4 @@ xdelta3regtest
 CMakeFiles
 *.a
 cmake_install.cmake
+CMakeCache.txt

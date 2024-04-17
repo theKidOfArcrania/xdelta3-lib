@@ -261,6 +261,10 @@
 #ifndef __XDELTA3_C_HEADER_PASS__
 #define __XDELTA3_C_HEADER_PASS__
 
+#define _POSIX_SOURCE 200112L
+#define _ISOC99_SOURCE
+#define _C99_SOURCE
+
 #include "xdelta3.h"
 #include "xdelta3-internal.h"
 

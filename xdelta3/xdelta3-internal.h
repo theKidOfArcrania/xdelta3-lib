@@ -18,6 +18,10 @@
 
 #include "xdelta3.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+
 typedef struct _main_file        main_file;
 typedef struct _main_extcomp     main_extcomp;
 
@@ -45,6 +49,8 @@ void main_free (void *ptr);
 int test_compare_files (const char* f0, const char* f1);
 usize_t xd3_bytes_on_srcblk (xd3_source *src, xoff_t blkno);
 xoff_t xd3_source_eof(const xd3_source *src);
+
+const char* xd3_mainerror(int err_num);
 
 uint32_t xd3_large_cksum_update (uint32_t cksum,
 				 const uint8_t *base,
@@ -381,5 +387,9 @@ uint64_t xd3_large64_cksum_update (xd3_hash_cfg *cfg, const uint64_t cksum,
 
 #define MAX_LRU_SIZE 32U
 #define XD3_MINSRCWINSZ (XD3_ALLOCSIZE * MAX_LRU_SIZE)
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
 
 #endif // XDELTA3_INTERNAL_H__
